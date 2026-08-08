@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="我的个人博客 - 分享技术、生活与思考">
+    <title>墨白博客 | 记录与思考</title>
+    <link rel="stylesheet" href="./assets/css/pet.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-feather-alt"></i>
+                <span>墨白博客</span>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link active" data-page="home">首页</a>
+                <a href="#articles" class="nav-link" data-page="articles">文章</a>
+                <a href="#categories" class="nav-link" data-page="categories">分类</a>
+                <a href="#about" class="nav-link" data-page="about">关于</a>
+                <a href="#contact" class="nav-link" data-page="contact">联系</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="search-btn" id="searchBtn" aria-label="搜索">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="菜单">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 搜索弹窗 -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="搜索文章..." autocomplete="off">
+                <button class="search-close" id="searchClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- 主内容区 -->
+    <main>
+        <!-- Hero 区域 -->
+        <section class="hero" id="home">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>用心写作 · 持续更新</span>
+                </div>
+                <h1 class="hero-title">
+                    在字里行间<br>
+                    <span class="gradient-text">寻找生活的诗意</span>
+                </h1>
+                <p class="hero-description">
+                    一个专注于技术分享、生活感悟与独立思考的个人博客空间。<br>
+                    在这里，每一篇文章都是一次真诚的对话。
+                </p>
+                <div class="hero-actions">
+                    <a href="#articles" class="btn btn-primary">
+                        <i class="fas fa-book-open"></i>
+                        开始阅读
+                    </a>
+                    <a href="#about" class="btn btn-outline">
+                        <i class="fas fa-user"></i>
+                        了解更多
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="42">0</span>
+                        <span class="stat-label">篇文章</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="8">0</span>
+                        <span class="stat-label">个分类</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="1280">0</span>
+                        <span class="stat-label">位读者</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll">
+                <span>向下滚动</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- 文章区域 -->
+        <section class="articles-section" id="articles">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">最新文章</h2>
+                    <p class="section-subtitle">探索近期创作的内容</p>
+                </div>
+
+                <!-- 特色文章 -->
+                <div class="featured-post" id="featuredPost">
+                    <!-- 由 JS 动态渲染 -->
+                </div>
+
+                <!-- 文章网格 -->
+                <div class="articles-grid" id="articlesGrid">
+                    <!-- 由 JS 动态渲染 -->
+                </div>
+
+                <!-- 加载更多 -->
+                <div class="load-more-container">
+                    <button class="btn btn-outline btn-load-more" id="loadMoreBtn">
+                        <i class="fas fa-plus"></i>
+                        加载更多
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分类区域 -->
+        <section class="categories-section" id="categories">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">文章分类</h2>
+                    <p class="section-subtitle">按主题浏览内容</p>
+                </div>
+                <div class="categories-grid" id="categoriesGrid">
+                    <!-- 由 JS 动态渲染 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于区域 -->
+        <section class="about-section" id="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="section-header left">
+                            <h2 class="section-title">关于我</h2>
+                            <p class="section-subtitle">一个热爱技术与文字的人</p>
+                        </div>
+                        <div class="about-description">
+                            <p>你好，我是 <strong>墨白</strong>，一名全栈开发工程师，也是这个博客的创建者。</p>
+                            <p>我热爱编程、写作和摄影。这个博客是我记录技术学习、生活感悟和思考的地方。我相信，写作是最好的思考方式，而分享让知识更有价值。</p>
+                            <p>在这里，你会看到关于前端开发、后端架构、AI技术、读书笔记和生活随笔的内容。</p>
+                        </div>
+                        <div class="about-skills">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">AI/ML</span>
+                            <span class="skill-tag">写作</span>
+                        </div>
+                        <div class="about-social">
+                            <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link" aria-label="微信"><i class="fab fa-weixin"></i></a>
+                            <a href="#" class="social-link" aria-label="邮箱"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="about-visual">
+                        <div class="about-card">
+                            <div class="about-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="about-info">
+                                <h3>墨白</h3>
+                                <p>全栈工程师 / 写作者</p>
+                                <div class="about-meta">
+                                    <div><i class="fas fa-map-marker-alt"></i> 中国</div>
+                                    <div><i class="fas fa-briefcase"></i> 5年经验</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 订阅区域 -->
+        <section class="subscribe-section" id="contact">
+            <div class="container">
+                <div class="subscribe-content">
+                    <div class="subscribe-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <h2>订阅博客更新</h2>
+                    <p>留下你的邮箱，第一时间获取最新文章推送，不打扰，只分享有价值的内容。</p>
+                    <form class="subscribe-form" id="subscribeForm">
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" placeholder="输入你的邮箱地址" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            立即订阅
+                        </button>
+                    </form>
+                    <p class="subscribe-note">我们尊重你的隐私，随时可以取消订阅</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-feather-alt"></i>
+                        <span>墨白博客</span>
+                    </a>
+                    <p>用文字记录技术，用思考照亮生活。</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>导航</h4>
+                        <a href="#home">首页</a>
+                        <a href="#articles">文章</a>
+                        <a href="#categories">分类</a>
+                        <a href="#about">关于</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>分类</h4>
+                        <a href="#">前端开发</a>
+                        <a href="#">后端架构</a>
+                        <a href="#">AI技术</a>
+                        <a href="#">生活随笔</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>联系</h4>
+                        <a href="mailto:hello@example.com">hello@example.com</a>
+                        <a href="#">GitHub</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 墨白博客. 用心制作，保留所有权利.</p>
+                <p class="footer-credit">Built with <i class="fas fa-heart"></i> and Code</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 文章详情弹窗 -->
+    <div class="article-modal" id="articleModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modalBody">
+                <!-- 由 JS 动态渲染 -->
+            </div>
+        </div>
+    </div>
+
+<!-- 小猫咪宠物 -->
+<div class="pet-container" id="petContainer">
+    <div class="pet" id="pet">
+        <div class="pet-tail" id="petTail"></div>
+        <div class="pet-body"></div>
+        <div class="pet-head" id="petHead">
+            <div class="pet-ear pet-ear-left"><div class="pet-ear-inner"></div></div>
+            <div class="pet-ear pet-ear-right"><div class="pet-ear-inner"></div></div>
+            <div class="pet-face">
+                <div class="pet-eye pet-eye-left"><div class="pet-eye-shine"></div></div>
+                <div class="pet-eye pet-eye-right"><div class="pet-eye-shine"></div></div>
+                <div class="pet-nose"></div>
+                <div class="pet-mouth" id="petMouth"></div>
+                <div class="pet-whisker pet-whisker-left-1"></div>
+                <div class="pet-whisker pet-whisker-left-2"></div>
+                <div class="pet-whisker pet-whisker-right-1"></div>
+                <div class="pet-whisker pet-whisker-right-2"></div>
+            </div>
+        </div>
+        <div class="pet-leg pet-leg-left"></div>
+        <div class="pet-leg pet-leg-right"></div>
+        <div class="pet-bubble" id="petBubble"></div>
+    </div>
+</div>
+
+    <script src="./assets/js/pet.js"></script>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
